@@ -1,23 +1,32 @@
-import logo from './logo.svg';
+import React from 'react';
+import MapView from './components/map';
 import './App.css';
 
 function App() {
+  const startCoords = { lat: 22.1696 , lng: 91.4996 };
+  const endCoords = { lat: 22.2637, lng: 91.7159 };
+  const speed = 20; // km/h
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div className='container'>
+      <div className='info'>
+        <div>
+        <b>Starting</b>
+        <div>
+          Lat: {startCoords.lat} <br/> Lng: {startCoords.lng}
+        </div>
+        </div>
+        <div className='speed'><b> Speed:</b> {speed} kmph</div>
+        <div>
+        <b>Ending</b>
+        <div>
+          Lat: {endCoords.lat} <br/> Lng: {endCoords.lng}
+        </div>
+        </div>
+      </div>
+      </div>
+      <MapView startCoords={startCoords} endCoords={endCoords} speed={speed} />
     </div>
   );
 }
